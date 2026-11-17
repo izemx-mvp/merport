@@ -1,0 +1,3 @@
+- [ ] Build the MERPORT French showcase, catalogue, and quote journey.
+- [ ] Add secure Cloud-backed quote/contact submissions.
+- [ ] Verify routes, interactions, tests, preview diagnostics, and commit the changes.
