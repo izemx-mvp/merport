@@ -13,7 +13,7 @@ const artByType: Record<string, string> = {
 
 export function ProductIllustration({ category, tone = "" }: { category: string; tone?: string }) {
   if (category === "cables-fils") return <div className={`product-visual product-visual-${tone}`}><CableCutaway className="product-cable" /></div>;
-  const d = artByType[category] ?? artByType.cable;
+  const d = artByType[category] ?? artByType["cable"];
   return (
     <div className={`product-visual product-visual-${tone}`}>
       <div className="product-visual-index">MATÉRIEL ÉLECTRIQUE · MERPORT</div>

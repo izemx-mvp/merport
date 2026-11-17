@@ -9,7 +9,7 @@ import { addToQuote } from "./quote-actions";
 export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
   const category = categoryBySlug(product.category);
   return (
-    <article className="product-card" style={{ animationDelay: `${Math.min(index, 8) * 55}ms` }}>
+    <article className="product-card">
       <Link to="/produits/$category/$product" params={{ category: product.category, product: product.slug }} className="product-card-image" aria-label={`Voir ${product.name}`}>
         <ProductIllustration category={product.category} tone={String(index % 4)} />
         <span className="availability-tag"><span/>{product.availability}</span>
