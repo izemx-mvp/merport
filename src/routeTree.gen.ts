@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DevisRouteImport } from './routes/devis'
+import { Route as EspaceClientRouteImport } from './routes/espace-client'
+import { Route as MarquesRouteImport } from './routes/marques'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as SecteursRouteImport } from './routes/secteurs'
+import { Route as ProduitsIndexRouteImport } from './routes/produits/index'
+import { Route as ProduitsCategoryIndexRouteImport } from './routes/produits/$category/index'
+import { Route as ProduitsCategoryProductRouteImport } from './routes/produits/$category/$product'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AProposRoute = AProposRouteImport.update({
+  id: '/a-propos',
+  path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
+  id: '/confidentialite',
+  path: '/confidentialite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevisRoute = DevisRouteImport.update({
+  id: '/devis',
+  path: '/devis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EspaceClientRoute = EspaceClientRouteImport.update({
+  id: '/espace-client',
+  path: '/espace-client',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarquesRoute = MarquesRouteImport.update({
+  id: '/marques',
+  path: '/marques',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecteursRoute = SecteursRouteImport.update({
+  id: '/secteurs',
+  path: '/secteurs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProduitsIndexRoute = ProduitsIndexRouteImport.update({
+  id: '/produits/',
+  path: '/produits/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProduitsCategoryIndexRoute = ProduitsCategoryIndexRouteImport.update({
+  id: '/produits/$category/',
+  path: '/produits/$category/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProduitsCategoryProductRoute = ProduitsCategoryProductRouteImport.update({
+  id: '/produits/$category/$product',
+  path: '/produits/$category/$product',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/confidentialite': typeof ConfidentialiteRoute
+  '/contact': typeof ContactRoute
+  '/devis': typeof DevisRoute
+  '/espace-client': typeof EspaceClientRoute
+  '/marques': typeof MarquesRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/secteurs': typeof SecteursRoute
+  '/produits/': typeof ProduitsIndexRoute
+  '/produits/$category/$product': typeof ProduitsCategoryProductRoute
+  '/produits/$category/': typeof ProduitsCategoryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/confidentialite': typeof ConfidentialiteRoute
+  '/contact': typeof ContactRoute
+  '/devis': typeof DevisRoute
+  '/espace-client': typeof EspaceClientRoute
+  '/marques': typeof MarquesRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/secteurs': typeof SecteursRoute
+  '/produits': typeof ProduitsIndexRoute
+  '/produits/$category/$product': typeof ProduitsCategoryProductRoute
+  '/produits/$category': typeof ProduitsCategoryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/confidentialite': typeof ConfidentialiteRoute
+  '/contact': typeof ContactRoute
+  '/devis': typeof DevisRoute
+  '/espace-client': typeof EspaceClientRoute
+  '/marques': typeof MarquesRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/secteurs': typeof SecteursRoute
+  '/produits/': typeof ProduitsIndexRoute
+  '/produits/$category/$product': typeof ProduitsCategoryProductRoute
+  '/produits/$category/': typeof ProduitsCategoryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/confidentialite'
+    | '/contact'
+    | '/devis'
+    | '/espace-client'
+    | '/marques'
+    | '/mentions-legales'
+    | '/secteurs'
+    | '/produits/'
+    | '/produits/$category/$product'
+    | '/produits/$category/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/confidentialite'
+    | '/contact'
+    | '/devis'
+    | '/espace-client'
+    | '/marques'
+    | '/mentions-legales'
+    | '/secteurs'
+    | '/produits'
+    | '/produits/$category/$product'
+    | '/produits/$category'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/confidentialite'
+    | '/contact'
+    | '/devis'
+    | '/espace-client'
+    | '/marques'
+    | '/mentions-legales'
+    | '/secteurs'
+    | '/produits/'
+    | '/produits/$category/$product'
+    | '/produits/$category/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposRoute: typeof AProposRoute
+  ConfidentialiteRoute: typeof ConfidentialiteRoute
+  ContactRoute: typeof ContactRoute
+  DevisRoute: typeof DevisRoute
+  EspaceClientRoute: typeof EspaceClientRoute
+  MarquesRoute: typeof MarquesRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
+  SecteursRoute: typeof SecteursRoute
+  ProduitsIndexRoute: typeof ProduitsIndexRoute
+  ProduitsCategoryProductRoute: typeof ProduitsCategoryProductRoute
+  ProduitsCategoryIndexRoute: typeof ProduitsCategoryIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-propos': {
+      id: '/a-propos'
+      path: '/a-propos'
+      fullPath: '/a-propos'
+      preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/confidentialite': {
+      id: '/confidentialite'
+      path: '/confidentialite'
+      fullPath: '/confidentialite'
+      preLoaderRoute: typeof ConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/devis': {
+      id: '/devis'
+      path: '/devis'
+      fullPath: '/devis'
+      preLoaderRoute: typeof DevisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/espace-client': {
+      id: '/espace-client'
+      path: '/espace-client'
+      fullPath: '/espace-client'
+      preLoaderRoute: typeof EspaceClientRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marques': {
+      id: '/marques'
+      path: '/marques'
+      fullPath: '/marques'
+      preLoaderRoute: typeof MarquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/secteurs': {
+      id: '/secteurs'
+      path: '/secteurs'
+      fullPath: '/secteurs'
+      preLoaderRoute: typeof SecteursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produits/': {
+      id: '/produits/'
+      path: '/produits'
+      fullPath: '/produits/'
+      preLoaderRoute: typeof ProduitsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produits/$category/': {
+      id: '/produits/$category/'
+      path: '/produits/$category'
+      fullPath: '/produits/$category/'
+      preLoaderRoute: typeof ProduitsCategoryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produits/$category/$product': {
+      id: '/produits/$category/$product'
+      path: '/produits/$category/$product'
+      fullPath: '/produits/$category/$product'
+      preLoaderRoute: typeof ProduitsCategoryProductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposRoute: AProposRoute,
+  ConfidentialiteRoute: ConfidentialiteRoute,
+  ContactRoute: ContactRoute,
+  DevisRoute: DevisRoute,
+  EspaceClientRoute: EspaceClientRoute,
+  MarquesRoute: MarquesRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
+  SecteursRoute: SecteursRoute,
+  ProduitsIndexRoute: ProduitsIndexRoute,
+  ProduitsCategoryProductRoute: ProduitsCategoryProductRoute,
+  ProduitsCategoryIndexRoute: ProduitsCategoryIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

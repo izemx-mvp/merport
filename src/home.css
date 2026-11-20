@@ -1,0 +1,166 @@
+/* =====================================================================
+   MERPORT — Homepage tokens for Tailwind v4
+   Imported in src/styles.css (right after merport.css).
+   The page itself is styled with Tailwind classes in src/routes/index.tsx.
+   ===================================================================== */
+
+@theme inline {
+  /* Brand colors (mapped to merport.css) → bg-mp-red, text-mp-ink, border-mp-line, bg-mp-red/15… */
+  --color-mp-red: var(--red);
+  --color-mp-red-dark: var(--red-dark);
+  --color-mp-navy: var(--navy);
+  --color-mp-navy-2: var(--navy-2);
+  --color-mp-navy-3: var(--navy-3);
+  --color-mp-ink: var(--ink);
+  --color-mp-muted: var(--text-muted);
+  --color-mp-paper: var(--paper);
+  --color-mp-line: var(--line);
+  --color-mp-night: #070f26;
+
+  /* Easing → ease-out-expo */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Animations → animate-marquee, animate-float… */
+  --animate-marquee: mp-marquee 45s linear infinite;
+  --animate-marquee-slow: mp-marquee 60s linear infinite;
+  --animate-float: mp-float 6s ease-in-out infinite;
+  --animate-fade-up: mp-fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-kenburns: mp-kenburns 24s ease-in-out infinite alternate;
+  --animate-draw: mp-draw 1.4s 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-ping-soft: mp-ping-soft 2s infinite;
+
+  @keyframes mp-marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes mp-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes mp-fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes mp-kenburns {
+    from { transform: scale(1.02); }
+    to { transform: scale(1.08) translateX(-1.5%); }
+  }
+  @keyframes mp-draw {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes mp-ping-soft {
+    0% { box-shadow: 0 0 0 0 rgb(215 31 43 / 0.6); }
+    70% { box-shadow: 0 0 0 10px rgb(215 31 43 / 0); }
+    100% { box-shadow: 0 0 0 0 rgb(215 31 43 / 0); }
+  }
+}
+
+/* Outlined giant type → text-outline + [--outline:white] */
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--outline, var(--ink));
+}
+
+/* Scroll reveal → class "reveal", JS adds "is-in" */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+  &.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Faint blueprint grid → bg-blueprint */
+@utility bg-blueprint {
+  background-image:
+    linear-gradient(rgb(11 24 56 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(11 24 56 / 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home *,
+  .home *::before,
+  .home *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .home .reveal,
+  .home .animate-fade-up {
+    opacity: 1;
+    transform: none;
+  }
+  .home .animate-draw {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* =====================================================================
+   v3 additions — homepage "electrical" sections
+   ===================================================================== */
+
+@theme inline {
+  --animate-flow-x: mp-flow-x 0.9s linear infinite;
+  --animate-flow-y: mp-flow-y 0.9s linear infinite;
+  --animate-cable: mp-cable 40s linear infinite;
+
+  @keyframes mp-flow-x {
+    to { background-position: 24px 0; }
+  }
+  @keyframes mp-flow-y {
+    to { background-position: 0 24px; }
+  }
+  @keyframes mp-cable {
+    to { transform: translateX(-50%); }
+  }
+}
+
+/* Faint grid on dark backgrounds → bg-blueprint-dark */
+@utility bg-blueprint-dark {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Moving "current" dashes → current-x / current-y (+ animate-flow-x / -y) */
+@utility current-x {
+  background-image: repeating-linear-gradient(90deg, var(--red) 0 12px, transparent 12px 24px);
+}
+@utility current-y {
+  background-image: repeating-linear-gradient(180deg, var(--red) 0 12px, transparent 12px 24px);
+}
+
+/* Cable sheath shading → bg-cable */
+@utility bg-cable {
+  background-image: linear-gradient(180deg, #4a4e58 0%, #1c1e24 30%, #0b0c10 62%, #23262d 100%);
+}
+
+/* v4 — devis page: receipt printing out of a slot → animate-print */
+@theme inline {
+  --animate-print: mp-print 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  @keyframes mp-print {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+}
+
+/* Zig-zag paper edge → paper-edge (put on an empty strip under the paper) */
+@utility paper-edge {
+  height: 10px;
+  background:
+    linear-gradient(135deg, #fff 50%, transparent 50%) 0 0 / 16px 10px repeat-x,
+    linear-gradient(225deg, #fff 50%, transparent 50%) 0 0 / 16px 10px repeat-x;
+}
+
+/* Fake barcode → barcode */
+@utility barcode {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--ink) 0 2px, transparent 2px 4px, var(--ink) 4px 5px, transparent 5px 8px,
+    var(--ink) 8px 11px, transparent 11px 12px, var(--ink) 12px 13px, transparent 13px 16px
+  );
+}
